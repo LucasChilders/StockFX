@@ -28,5 +28,5 @@ Big thank you to [natehefner] for his [Yahoo Stocks library]!
 * Adopt Material Design standards
 
 
-   [natehefner]: <https://github.com/natehefner/yahoostocks-java>
+   [natehefner]: <https://github.com/natehefner/>
    [Yahoo Stocks library]: <https://github.com/natehefner/yahoostocks-java>
