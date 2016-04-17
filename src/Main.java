@@ -6,6 +6,7 @@ April 16th, 2016
 
 import javafx.application.Application;
 import javafx.geometry.*;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -38,6 +39,7 @@ public class Main extends Application {
     boolean stockLoaded = false;
     double today, yesterday;
     final int SCENE_WIDTH = 300;
+    String company;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -107,6 +109,7 @@ public class Main extends Application {
             //If a stock has already been displayed
             if (stockLoaded) {
                 input.setText("");
+                primaryStage.setTitle("StocksFX");
                 stockLoaded = false;
             }
 
@@ -114,6 +117,7 @@ public class Main extends Application {
             if (e.getCode() == KeyCode.ENTER) {
                 stock = StockFetcher.getStock(input.getText());
                 loadStock();
+                primaryStage.setTitle("StocksFX" + company);
 
                 //If the change is positive
                 if (today > yesterday) {
@@ -152,11 +156,18 @@ public class Main extends Application {
         if (stock.getName().equals("N/A")) {
             resetLabels();
             stockChange.setText("not found");
+            company = "";
+            today = 0;
+            yesterday = 1;
             stockLoaded = true;
             return;
         }
 
-        double change = stock.getPrice() - stock.getPreviousClose();
+        //Loading data to get colors
+        today = stock.getPrice();
+        yesterday = stock.getPreviousClose();
+
+        double change = today - yesterday;
         String changeStr;
 
         //Labels (in order)
@@ -193,6 +204,7 @@ public class Main extends Application {
 
         //Stock has been loaded
         stockLoaded = true;
+        company = " - " + stock.getName();
     }
 
     public void resetLabels() {
