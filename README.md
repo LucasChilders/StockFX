@@ -1,3 +1,27 @@
 # StockFX
+##### Lucas Childers
+&nbsp;
 
-Big thanks to natehefner's Yahoo Stocks library found here: https://github.com/natehefner/yahoostocks-java
+![scr1](https://raw.githubusercontent.com/LucasChilders/StockFX/master/assets/screen1.PNG "Screen Shot 1")
+![scr2](https://raw.githubusercontent.com/LucasChilders/StockFX/master/assets/screen2.PNG "Screen Shot 2")
+
+StockFX utilizes some basic JavaFX nodes and an awesome Yahoo Stock library to pull real time stock data. Type the stock ticker and hit enter! The top bar will change color based on the price for the day compared to yesterday.
+
+### Version
+0.1
+
+### Libraries
+Big thank you to [natehefner] for his [Yahoo Stocks library]!
+
+### To do
+Help menu
+Refresh / Auto-refresh
+Show data from list of preset stocks
+Nicer UI
+Force capitalize ticker
+
+
+   [natehefner]: <https://github.com/natehefner/yahoostocks-java>
+   [Yahoo Stocks library]: <https://github.com/natehefner/yahoostocks-java>
+
+s-java
