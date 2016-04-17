@@ -20,26 +20,26 @@ import java.text.NumberFormat;
 
 public class Main extends Application {
     //Number Format for currency and commas
-    NumberFormat nf = NumberFormat.getInstance();
-    NumberFormat formatter = NumberFormat.getCurrencyInstance();
+    private NumberFormat nf = NumberFormat.getInstance();
+    private NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
     //Labels
-    Label stockName = new Label();
-    Label stockPrice = new Label();
-    Label stockPriceLabel = new Label();
-    Label stockLowHigh = new Label();
-    Label stockPrevClose = new Label();
-    Label stockChange = new Label();
-    Label stockChangeLabel = new Label();
-    Label stockVolume = new Label();
+    private Label stockName = new Label();
+    private Label stockPrice = new Label();
+    private Label stockPriceLabel = new Label();
+    private Label stockLowHigh = new Label();
+    private Label stockPrevClose = new Label();
+    private Label stockChange = new Label();
+    private Label stockChangeLabel = new Label();
+    private Label stockVolume = new Label();
 
     //Loading Stock class
-    Stock stock;
+    private Stock stock;
 
-    boolean stockLoaded = false;
-    double today, yesterday;
-    final int SCENE_WIDTH = 300;
-    String company;
+    private boolean stockLoaded = false;
+    private double today, yesterday;
+    private final int SCENE_WIDTH = 300;
+    private String company;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -89,7 +89,7 @@ public class Main extends Application {
         //Text box wrapper (HBox)
         txArea.setStyle("-fx-background-color: #FFFFFF;");
         txArea.setPrefWidth(SCENE_WIDTH + 10);
-        txArea.setMargin(input, new Insets(10, 0, 10, 0));
+        txArea.setPadding(new Insets(10, 0, 10, 0));
         txArea.setAlignment(Pos.CENTER);
 
         //Big price label
@@ -151,7 +151,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public void loadStock() {
+    private void loadStock() {
         //If the stock couldn't be found
         if (stock.getName().equals("N/A")) {
             resetLabels();
@@ -207,7 +207,7 @@ public class Main extends Application {
         company = " - " + stock.getName();
     }
 
-    public void resetLabels() {
+    private void resetLabels() {
         //Reset all labels to blank
 
         stockName.setText("");
