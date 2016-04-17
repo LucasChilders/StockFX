@@ -17,13 +17,11 @@ Java 1.8+ (Lambda expression)
 Big thank you to [natehefner] for his [Yahoo Stocks library]!
 
 ### To do
-* Help menu
 * Refresh / Auto-refresh
 * Show data from list of preset stocks
-* Nicer UI
 * Force capitalize ticker
 * Add current market time
-* Convert project to CSS
+* Convert project to CSS / Seperate style sheet
 * Error handling
 * Adopt Material Design standards
 

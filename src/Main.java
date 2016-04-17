@@ -8,9 +8,7 @@ import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -46,6 +44,9 @@ public class Main extends Application {
         primaryStage.setTitle("StocksFX");
         primaryStage.setResizable(false);
 
+        //BorderPane main wrapper
+        BorderPane borderPane = new BorderPane();
+
         //FlowPane wrapper
         FlowPane root = new FlowPane(10, 0);
 
@@ -63,8 +64,40 @@ public class Main extends Application {
         HBox priceBox = new HBox(stockPrice);
         HBox changeBox = new HBox(stockChange);
 
+        //Alert Window - ABOUT
+        Alert aboutWindow = new Alert(Alert.AlertType.INFORMATION);
+        aboutWindow.setTitle("About");
+        aboutWindow.setHeaderText("StockFX");
+        aboutWindow.setContentText("Lucas Childers\nApril 17th, 2016");
+
+        //Alert Window - HELP
+        Alert helpWindow = new Alert(Alert.AlertType.INFORMATION);
+        helpWindow.setTitle("Help");
+        helpWindow.setHeaderText("StockFX");
+        helpWindow.setContentText("Type the symbol (ticker) of a given stock into the text field. The text field does " +
+                "not have a blinking cursor, but it is selected by default. Press enter after typing in the stock and " +
+                "allow the program to load in the information. Data should be loaded in very quickly, depending on your " +
+                "internet connection. ");
+
+        //MenuBar
+        Menu help = new Menu("Help");
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().add(help);
+        MenuItem aboutItem = new MenuItem("About");
+        MenuItem helpItem = new MenuItem("Help");
+        menuBar.setStyle("-fx-background-color: white;-fx-border-style: solid;-fx-border-color: lightgrey;-fx-border-width: 1 0 0 0;");
+        help.getItems().addAll(aboutItem, new SeparatorMenuItem(), helpItem);
+
+        //MenuItem actions
+        aboutItem.setOnAction(e -> aboutWindow.showAndWait());
+        helpItem.setOnAction(e -> helpWindow.showAndWait());
+
+        //Placing the nodes in the window
+        borderPane.setBottom(menuBar);
+        borderPane.setCenter(root);
+
         //The main scene (window)
-        Scene scene = new Scene(root, SCENE_WIDTH, 275);
+        Scene scene = new Scene(borderPane, SCENE_WIDTH, 300);
 
         //Setting element attributes
 
