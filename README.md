@@ -14,14 +14,12 @@ StockFX utilizes some basic JavaFX nodes and an awesome Yahoo Stock library to p
 Big thank you to [natehefner] for his [Yahoo Stocks library]!
 
 ### To do
-Help menu
-Refresh / Auto-refresh
-Show data from list of preset stocks
-Nicer UI
-Force capitalize ticker
+Help menu  
+Refresh / Auto-refresh  
+Show data from list of preset stocks  
+Nicer UI  
+Force capitalize ticker  
 
 
    [natehefner]: <https://github.com/natehefner/yahoostocks-java>
    [Yahoo Stocks library]: <https://github.com/natehefner/yahoostocks-java>
-
-s-java
