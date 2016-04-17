@@ -1,5 +1,3 @@
-package com.lucas;
-
 public class Stock {
 	
 	private String symbol; 
