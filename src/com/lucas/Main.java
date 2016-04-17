@@ -1,3 +1,5 @@
+package com.lucas;
+
 import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.Scene;

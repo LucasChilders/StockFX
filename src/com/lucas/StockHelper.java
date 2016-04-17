@@ -1,3 +1,5 @@
+package com.lucas;
+
 import java.util.regex.Pattern;
 
 public class StockHelper {
