@@ -14,6 +14,8 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.text.NumberFormat;
 
 public class Main extends Application {
@@ -43,6 +45,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("StocksFX");
         primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UTILITY);
 
         //BorderPane main wrapper
         BorderPane borderPane = new BorderPane();

@@ -8,7 +8,7 @@
 StockFX utilizes some basic JavaFX nodes and an awesome Yahoo Stock library to pull real time stock data. Type the stock ticker and hit enter! The top bar will change color based on the price for the day compared to yesterday.
 
 ### Version
-0.1
+0.1.2
 
 ### Requirements
 Java 1.8+ (Lambda expression)
