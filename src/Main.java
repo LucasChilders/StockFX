@@ -14,7 +14,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
 import java.io.*;
 import java.text.NumberFormat;
 import java.util.ArrayList;
