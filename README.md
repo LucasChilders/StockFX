@@ -24,6 +24,8 @@ Big thank you to [natehefner] for his [Yahoo Stocks library]!
 * Convert project to CSS / Seperate style sheet
 * Error handling
 * Adopt Material Design standards
+* Help / About menu ontop
+* Better cross platform UI scaling
 
 
    [natehefner]: <https://github.com/natehefner/>

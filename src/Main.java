@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -38,14 +39,21 @@ public class Main extends Application {
 
     private boolean stockLoaded = false;
     private double today, yesterday;
-    private final int SCENE_WIDTH = 300;
+    private int SCENE_WIDTH = 300;
+    private int SCENE_HEIGHT = 300;
+    private int LEFT_PAD = 0;
     private String company;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        if (System.getProperty("os.name").equals("Mac OS X")) {
+            SCENE_WIDTH = 300;
+            SCENE_HEIGHT = 310;
+            LEFT_PAD = -10;
+        }
+
         primaryStage.setTitle("StocksFX");
         primaryStage.setResizable(false);
-        primaryStage.initStyle(StageStyle.UTILITY);
 
         //BorderPane main wrapper
         BorderPane borderPane = new BorderPane();
@@ -100,7 +108,7 @@ public class Main extends Application {
         borderPane.setCenter(root);
 
         //The main scene (window)
-        Scene scene = new Scene(borderPane, SCENE_WIDTH, 300);
+        Scene scene = new Scene(borderPane, SCENE_WIDTH, SCENE_HEIGHT);
 
         //Setting element attributes
 
@@ -125,7 +133,7 @@ public class Main extends Application {
         //Text box wrapper (HBox)
         txArea.setStyle("-fx-background-color: #FFFFFF;");
         txArea.setPrefWidth(SCENE_WIDTH + 10);
-        txArea.setPadding(new Insets(10, 0, 10, 0));
+        txArea.setPadding(new Insets(10, 0, 10, LEFT_PAD));
         txArea.setAlignment(Pos.CENTER);
 
         //Big price label
