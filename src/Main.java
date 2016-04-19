@@ -46,9 +46,7 @@ public class Main extends Application {
     private int SCENE_HEIGHT = 300;
     private int LEFT_PAD = 0;
 
-    //File reading
-    BufferedReader reader;
-    ArrayList<String> tickers = new ArrayList<>();
+    private ArrayList<String> tickers;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -59,8 +57,11 @@ public class Main extends Application {
             LEFT_PAD = -10;
         }
 
+        //Reading file
+        tickers = new ArrayList<>();
         readFile();
 
+        //Setting window title and size options
         primaryStage.setTitle("StocksFX");
         primaryStage.setResizable(false);
 
@@ -275,15 +276,13 @@ public class Main extends Application {
     private void readFile() {
         try {
             String str;
-            reader = new BufferedReader(new FileReader("assets/tickers.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("assets/tickers.txt"));
             while ((str = reader.readLine()) != null) {
                 tickers.add(str);
             }
         } catch (IOException e) {
             System.out.println("Error reading file or file not found\n" + e);
         }
-
-        return;
     }
 
     public static void main(String[] args) {
