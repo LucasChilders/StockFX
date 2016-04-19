@@ -1,7 +1,7 @@
 /*
 Lucas Childers
 StockFX
-April 16th, 2016
+April 18th, 2016
  */
 
 import javafx.application.Application;
@@ -13,9 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.stage.Stage
 
 import java.io.*;
 import java.text.NumberFormat;
@@ -50,7 +48,7 @@ public class Main extends Application {
     private int LEFT_PAD = 0;
 
     //File reading
-    File file = new File("assets/tickers.txt");
+    BufferedReader reader;
     ArrayList<String> tickers = new ArrayList<>();
 
     @Override
@@ -265,7 +263,6 @@ public class Main extends Application {
 
     private void resetLabels() {
         //Reset all labels to blank
-
         stockName.setText("");
         stockPrice.setText("");
         stockPriceLabel.setText("");
@@ -277,15 +274,14 @@ public class Main extends Application {
     }
 
     private void readFile() {
-        String str;
-
         try {
-            while ((str = in.readLine()) != null) {
+            String str;
+            reader = new BufferedReader(new FileReader("assets/tickers.txt"));
+            while ((str = reader.readLine()) != null) {
                 tickers.add(str);
             }
-        }
-        catch (IOException e) {
-            System.out.println("Error reading file\n" + e);
+        } catch (IOException e) {
+            System.out.println("Error reading file or file not found\n" + e);
         }
 
         return;
