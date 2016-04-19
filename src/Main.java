@@ -17,7 +17,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.*;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 public class Main extends Application {
     //Number Format for currency and commas
@@ -47,6 +49,10 @@ public class Main extends Application {
     private int SCENE_HEIGHT = 300;
     private int LEFT_PAD = 0;
 
+    //File reading
+    File file = new File("assets/tickers.txt");
+    ArrayList<String> tickers = new ArrayList<>();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         //Checking for OS to change UI scale
@@ -55,6 +61,8 @@ public class Main extends Application {
             SCENE_HEIGHT = 310;
             LEFT_PAD = -10;
         }
+
+        readFile();
 
         primaryStage.setTitle("StocksFX");
         primaryStage.setResizable(false);
@@ -266,6 +274,21 @@ public class Main extends Application {
         stockPrevClose.setText("");
         stockChange.setText("");
         stockChangeLabel.setText("");
+    }
+
+    private void readFile() {
+        String str;
+
+        try {
+            while ((str = in.readLine()) != null) {
+                tickers.add(str);
+            }
+        }
+        catch (IOException e) {
+            System.out.println("Error reading file\n" + e);
+        }
+
+        return;
     }
 
     public static void main(String[] args) {

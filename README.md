@@ -26,6 +26,7 @@ Big thank you to [natehefner] for his [Yahoo Stocks library]!
 * Adopt Material Design standards
 * Help / About menu ontop
 * Better cross platform UI scaling
+* File reading
 
 
    [natehefner]: <https://github.com/natehefner/>
