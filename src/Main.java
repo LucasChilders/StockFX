@@ -37,16 +37,20 @@ public class Main extends Application {
     //Loading Stock class
     private Stock stock;
 
+    //Other variables
     private boolean stockLoaded = false;
     private double today, yesterday;
+    private String company;
+
+    //Constants
     private int SCENE_WIDTH = 300;
     private int SCENE_HEIGHT = 300;
     private int LEFT_PAD = 0;
-    private String company;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        if (System.getProperty("os.name").equals("Mac OS X")) {
+        //Checking for OS to change UI scale
+        if (System.getProperty("os.name").contains("Mac")) {
             SCENE_WIDTH = 300;
             SCENE_HEIGHT = 310;
             LEFT_PAD = -10;
@@ -137,12 +141,12 @@ public class Main extends Application {
         txArea.setAlignment(Pos.CENTER);
 
         //Big price label
-        priceBox.setPadding(new Insets(5, 0, 0, 0));
+        priceBox.setPadding(new Insets(5, 0, 0, LEFT_PAD));
         priceBox.setMinWidth(SCENE_WIDTH + 10);
         priceBox.setAlignment(Pos.CENTER);
 
         //Day change label (below price)
-        changeBox.setPadding(new Insets(-5, 0, 5, 0));
+        changeBox.setPadding(new Insets(-5, 0, 5, LEFT_PAD));
         changeBox.setMinWidth(SCENE_WIDTH + 10);
         changeBox.setAlignment(Pos.CENTER);
 
