@@ -1,3 +1,5 @@
+package com.lucaschilders;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,10 +11,10 @@ import java.util.logging.Logger;
 public class StockFetcher {  
 	
 	/*
-	* Returns a Stock Object that contains info about a specified stock.
+	* Returns a com.lucaschilders.Stock Object that contains info about a specified stock.
 	* @param 	symbol the company's stock symbol
 	* @return 	a stock object containing info about the company's stock
-	* @see Stock
+	* @see com.lucaschilders.Stock
 	*/
 	static Stock getStock(String symbol) {  
 		String sym = symbol.toUpperCase();

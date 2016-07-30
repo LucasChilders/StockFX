@@ -1,3 +1,5 @@
+package com.lucaschilders;
+
 public class Stock {
 	
 	private String symbol; 

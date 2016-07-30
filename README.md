@@ -5,7 +5,7 @@
 ![scr1](https://raw.githubusercontent.com/LucasChilders/StockFX/master/assets/screen1.PNG "Screen Shot 1")
 ![scr2](https://raw.githubusercontent.com/LucasChilders/StockFX/master/assets/screen2.PNG "Screen Shot 2")
 
-StockFX utilizes some basic JavaFX nodes and an awesome Yahoo Stock library to pull real time stock data. Type the stock ticker and hit enter! The top bar will change color based on the price for the day compared to yesterday.
+StockFX utilizes some basic JavaFX nodes and an awesome Yahoo com.lucaschilders.Stock library to pull real time stock data. Type the stock ticker and hit enter! The top bar will change color based on the price for the day compared to yesterday.
 
 ### Version
 0.1.2

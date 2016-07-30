@@ -1,4 +1,4 @@
-/*
+package com.lucaschilders;/*
 Lucas Childers
 StockFX
 April 18th, 2016
@@ -33,7 +33,7 @@ public class Main extends Application {
     private Label stockChangeLabel = new Label();
     private Label stockVolume = new Label();
 
-    //Loading Stock class
+    //Loading com.lucaschilders.Stock class
     private Stock stock;
 
     //Other variables
@@ -256,7 +256,7 @@ public class Main extends Application {
         //Yesterday closing price
         stockPrevClose.setText("Yesterday's Close: " + formatter.format(stock.getPreviousClose()));
 
-        //Stock has been loaded
+        //com.lucaschilders.Stock has been loaded
         stockLoaded = true;
         company = " - " + stock.getName();
     }
