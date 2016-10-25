@@ -11,7 +11,7 @@ StockFX utilizes some basic JavaFX nodes and an awesome Yahoo Stock library to p
 0.1.2
 
 ### Requirements
-Java 1.8+ (Lambda expression)
+Java 8+ (Lambda expression)
 
 ### Libraries
 Big thank you to [natehefner] for his [Yahoo Stocks library]!
