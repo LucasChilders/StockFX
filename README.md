@@ -14,7 +14,7 @@ StockFX utilizes some basic JavaFX nodes and an awesome Yahoo Stock library to p
 Java 8+ (Lambda expression)
 
 ### Libraries
-Big thank you to [natehefner] for his [Yahoo Stocks library]!
+Big thank you to the [yahoofinance-api]!
 
 ### To do
 * Refresh / Auto-refresh
@@ -29,5 +29,4 @@ Big thank you to [natehefner] for his [Yahoo Stocks library]!
 * File reading
 
 
-   [natehefner]: <https://github.com/natehefner/>
-   [Yahoo Stocks library]: <https://github.com/natehefner/yahoostocks-java>
+   [yahoofinance-api]: <https://github.com/sstrickx/yahoofinance-api>
