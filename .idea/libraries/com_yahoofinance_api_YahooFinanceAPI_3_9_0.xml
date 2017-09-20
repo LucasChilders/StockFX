@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.yahoofinance-api:YahooFinanceAPI:3.9.0" type="repository">
+    <properties maven-id="com.yahoofinance-api:YahooFinanceAPI:3.9.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/YahooFinanceAPI-3.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
