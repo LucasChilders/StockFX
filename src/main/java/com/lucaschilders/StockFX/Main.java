@@ -63,10 +63,6 @@ public class Main extends Application {
             LEFT_PAD = -10;
         }
 
-        // Reading file
-        tickers = new ArrayList<>();
-        readFile();
-
         // Setting window title and size options
         primaryStage.setTitle("StocksFX");
         primaryStage.setResizable(false);
@@ -268,7 +264,6 @@ public class Main extends Application {
         // Yesterday closing price
         stockPrevClose.setText("Yesterday's Close: " + formatter.format(yesterday));
 
-        //com.lucaschilders.Stock has been loaded
         stockLoaded = true;
         company = " - " + stock.getName();
     }
@@ -283,18 +278,6 @@ public class Main extends Application {
         stockPrevClose.setText("");
         stockChange.setText("");
         stockChangeLabel.setText("");
-    }
-
-    private void readFile() {
-        try {
-            String str;
-            BufferedReader reader = new BufferedReader(new FileReader("assets/tickers.txt"));
-            while ((str = reader.readLine()) != null) {
-                tickers.add(str);
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading file or file not found\n" + e);
-        }
     }
 
     public static void main(String[] args) {
