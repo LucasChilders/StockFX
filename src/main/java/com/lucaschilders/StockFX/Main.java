@@ -39,20 +39,16 @@ public class Main extends Application {
     private Label stockVolume = new Label();
 
     //Loading YahooFinance class
-    private yahoofinance.Stock stock;
+    public StockData stockData;
 
     //Other variables
     private boolean stockLoaded = false;
-    private double today;
-    private double yesterday;
     private String company;
 
     //Constants
     private int SCENE_WIDTH = 300;
     private int SCENE_HEIGHT = 300;
     private int LEFT_PAD = 0;
-
-    private ArrayList<String> tickers;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -171,27 +167,23 @@ public class Main extends Application {
 
             //When ENTER is pressed
             if (e.getCode() == KeyCode.ENTER) {
-                try {
-                    stock = YahooFinance.get(input.getText());
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+                stockData = new StockData(input.getText());
 
                 loadStock();
                 primaryStage.setTitle("StocksFX" + company);
 
                 //If the change is positive
-                if (today > yesterday) {
+                if (stockData.today > stockData.yesterday) {
                     txArea.setStyle("-fx-background-color: #89ff90;");
                 }
 
                 //If the change is negative
-                else if (yesterday > today) {
+                else if (stockData.yesterday > stockData.today) {
                     txArea.setStyle("-fx-background-color: #ff8179;");
                 }
 
                 //If nothing has changed
-                else if (yesterday == today) {
+                else if (stockData.yesterday == stockData.today) {
                     txArea.setStyle("-fx-background-color: #FFFFFF;");
                 }
             }
@@ -213,59 +205,46 @@ public class Main extends Application {
     }
 
     private void loadStock() {
-        // If the stock couldn't be found
-        if (!stock.isValid()) {
+        if (!stockData.stock.isValid()) {
             resetLabels();
-            stockChange.setText("not found");
-            company = "";
-            today = 0.0;
-            yesterday = 1;
-            stockLoaded = true;
-            return;
         }
 
-        // Loading data to get colors
-        today = stock.getQuote().getPrice().doubleValue();
-
-        yesterday = stock.getQuote().getPreviousClose().doubleValue();
-
-        double change = today - yesterday;
         String changeStr;
 
         // Labels (in order)
 
         // Name / Ticker
-        stockName.setText(stock.getName() + " (" + stock.getSymbol() + ")");
+        stockName.setText(stockData.companyName + " (" + stockData.ticker + ")");
 
         // Big price
-        stockPrice.setText(formatter.format(today).substring(1));
+        stockPrice.setText(formatter.format(stockData.today).substring(1));
 
         // Normal price
-        stockPriceLabel.setText("Price: " + formatter.format(today));
+        stockPriceLabel.setText("Price: " + formatter.format(stockData.today));
 
         // Change in price and percentage
-        if (change < 0) {
-            stockChangeLabel.setText("Change: -" + formatter.format(change * -1).substring(0, 5) + " (-" + String.valueOf((change * -1) / today * 100).substring(0, 4) + "%)");
-            change *= -1;
-            changeStr = "-" + formatter.format(change).substring(1);
+        if (stockData.change < 0) {
+            stockChangeLabel.setText("Change: -" + formatter.format(stockData.change * -1).substring(0, 5) + " (-" + String.valueOf((stockData.change * -1) / stockData.today * 100).substring(0, 4) + "%)");
+            stockData.change *= -1;
+            changeStr = "-" + formatter.format(stockData.change).substring(1);
         }
         else {
-            changeStr = formatter.format(change).substring(1);
-            stockChangeLabel.setText("Change: " + formatter.format(change)  + " (" + String.valueOf((change) / today * 100).substring(0, 4) + "%)");
+            changeStr = formatter.format(stockData.change).substring(1);
+            stockChangeLabel.setText("Change: " + formatter.format(stockData.change)  + " (" + String.valueOf((stockData.change) / stockData.today * 100).substring(0, 4) + "%)");
         }
         stockChange.setText(changeStr);
 
         // Volume traded
-        stockVolume.setText("Volume: " + nf.format(stock.getQuote().getVolume()));
+        stockVolume.setText("Volume: " + nf.format(stockData.volume));
 
         // Set stock range for the day
-        stockLowHigh.setText("Day Low/High: " + formatter.format(stock.getQuote().getDayLow()) + " - " + formatter.format(stock.getQuote().getDayHigh()));
+        stockLowHigh.setText("Day Low/High: " + formatter.format(stockData.dayLow) + " - " + formatter.format(stockData.dayHigh));
 
         // Yesterday closing price
-        stockPrevClose.setText("Yesterday's Close: " + formatter.format(yesterday));
+        stockPrevClose.setText("Yesterday's Close: " + formatter.format(stockData.yesterday));
 
         stockLoaded = true;
-        company = " - " + stock.getName();
+        company = " - " + stockData.companyName;
     }
 
     private void resetLabels() {
